@@ -7,12 +7,14 @@ app.get('/', function(req, res) {
 
 app.get('/whoami', function(req, res) {
 	var result = {};
-	result.ipaddress = req.ip;
+	
+	result.ipaddress = req.headers['x-forwarded-for'].split(',')[0]; // this won't work on a local server
 	result.language = req.headers['accept-language'].split(',')[0];
+	
 	var ua = req.headers['user-agent'];
 	ua = ua.substring(ua.indexOf('(') + 1, ua.indexOf(')'));
 	result.software = ua;
-
+	
 	res.send(result);
 });
 
