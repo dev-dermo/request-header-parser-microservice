@@ -8,7 +8,7 @@ app.get('/', function(req, res) {
 app.get('/whoami', function(req, res) {
 	var result = {};
 	
-	result.ipaddress = req.headers['x-forwarded-for'].split(',')[0]; // this won't work on a local server
+	result.ipaddress = req.headers['x-forwarded-for'].split(',')[0]; // this won't work on a local server, use result.ipaddress = req.ip; instead
 	result.language = req.headers['accept-language'].split(',')[0];
 	
 	var ua = req.headers['user-agent'];
