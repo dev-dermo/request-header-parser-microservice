@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(req, res) {
-	res.send('<p>Visit <a href="whoami">/whoami</a> to get your details.</p>');
+	res.send('<p>Visit <a href="whoami">/whoami</a> to get the IP address, language and operating system for your browser.</p>');
 });
 
 app.get('/whoami', function(req, res) {
